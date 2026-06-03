@@ -1,0 +1,264 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────
+// USER
+// ─────────────────────────────────────────
+
+model User {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  passwordHash   String?
+  name           String
+  avatarUrl      String?
+  phone          String?
+  role           Role      @default(FARMER)
+  language       Language  @default(HI)
+  isVerified     Boolean   @default(false)
+  isPro          Boolean   @default(false)
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  lastActiveAt   DateTime?
+
+  // Relations
+  oauthAccounts  OAuthAccount[]
+  scans          Scan[]
+  fields         Field[]
+  refreshTokens  RefreshToken[]
+  notifications  Notification[]
+
+  @@map("users")
+}
+
+enum Role {
+  FARMER
+  AGRONOMIST
+  STUDENT
+  ADMIN
+}
+
+enum Language {
+  EN
+  HI
+  BN
+  TE
+  TA
+  MR
+  KN
+}
+
+// ─────────────────────────────────────────
+// OAUTH
+// ─────────────────────────────────────────
+
+model OAuthAccount {
+  id           String   @id @default(cuid())
+  userId       String
+  provider     String   // "google" | "facebook"
+  providerAccountId String
+  accessToken  String?
+  refreshToken String?
+  expiresAt    DateTime?
+
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("oauth_accounts")
+}
+
+// ─────────────────────────────────────────
+// REFRESH TOKEN
+// ─────────────────────────────────────────
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  isRevoked Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+// ─────────────────────────────────────────
+// FIELD (Farm field / plot)
+// ─────────────────────────────────────────
+
+model Field {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  location    String?
+  areaAcres   Float?
+  cropType    String?
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scans       Scan[]
+
+  @@map("fields")
+}
+
+// ─────────────────────────────────────────
+// SCAN
+// ─────────────────────────────────────────
+
+model Scan {
+  id              String      @id @default(cuid())
+  userId          String
+  fieldId         String?
+
+  // Image
+  originalImageUrl  String
+  heatmapImageUrl   String?
+  imageSizeKb       Int?
+  imageQualityScore Float?
+
+  // Detection Result
+  status          ScanStatus  @default(PENDING)
+  cropName        String?
+  diseaseName     String?
+  diseaseId       String?
+  confidence      Float?
+  severity        Severity?
+  isHealthy       Boolean?
+  inferenceTimeMs Int?
+
+  // AI raw output (top-3 predictions stored as JSON)
+  predictionsJson Json?
+
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  field           Field?      @relation(fields: [fieldId], references: [id])
+  report          Report?
+
+  @@index([userId])
+  @@index([createdAt])
+  @@map("scans")
+}
+
+enum ScanStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum Severity {
+  HEALTHY
+  MILD
+  MODERATE
+  SEVERE
+}
+
+// ─────────────────────────────────────────
+// DISEASE REPORT
+// ─────────────────────────────────────────
+
+model Report {
+  id                  String   @id @default(cuid())
+  scanId              String   @unique
+  diseaseId           String?
+
+  // Report content (can be populated from DiseaseKB or AI-generated)
+  overview            String?
+  cause               String?
+  causeType           CauseType?
+  progressionRisk     String?
+  symptoms            String[]
+  organicTreatments   String[]
+  chemicalTreatments  String[]
+  preventiveMeasures  String[]
+  bestPractices       String[]
+  affectedCropStage   String[]
+
+  // Shareable link
+  shareToken          String?  @unique
+  shareExpiresAt      DateTime?
+
+  generatedAt         DateTime @default(now())
+
+  scan                Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  diseaseKb           DiseaseKB? @relation(fields: [diseaseId], references: [id])
+
+  @@map("reports")
+}
+
+enum CauseType {
+  FUNGAL
+  BACTERIAL
+  VIRAL
+  PEST
+  NUTRIENT_DEFICIENCY
+  ENVIRONMENTAL
+  UNKNOWN
+}
+
+// ─────────────────────────────────────────
+// DISEASE KNOWLEDGE BASE
+// ─────────────────────────────────────────
+
+model DiseaseKB {
+  id                  String   @id  // e.g. "TOMATO_EARLY_BLIGHT_001"
+  cropName            String
+  diseaseName         String
+  localNames          Json?    // { "hi": "अगेती झुलसा", "bn": "আগাম ব্লাইট" }
+  causeType           CauseType
+  causativeAgent      String?
+  overview            String
+  symptoms            String[]
+  organicTreatments   String[]
+  chemicalTreatments  String[]
+  preventiveMeasures  String[]
+  progressionInfo     String?
+  referenceImageUrl   String?
+  isActive            Boolean  @default(true)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  reports             Report[]
+
+  @@map("disease_kb")
+}
+
+// ─────────────────────────────────────────
+// NOTIFICATION
+// ─────────────────────────────────────────
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      NotifType
+  title     String
+  body      String
+  isRead    Boolean  @default(false)
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
+
+enum NotifType {
+  SCAN_COMPLETE
+  DISEASE_ALERT
+  WEATHER_ADVISORY
+  SYSTEM
+}

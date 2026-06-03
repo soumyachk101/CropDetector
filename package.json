@@ -1,0 +1,24 @@
+{
+  "name": "crop-detector-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@11.11.0",
+  "description": "AI-Powered Crop Health & Disease Detection Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0",
+    "turbo": "^2.0.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  }
+}

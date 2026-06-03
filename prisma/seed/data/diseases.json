@@ -1,0 +1,175 @@
+[
+  {
+    "id": "TOMATO_EARLY_BLIGHT",
+    "cropName": "Tomato",
+    "diseaseName": "Early Blight",
+    "localNames": { "hi": "टमाटर का अगेती झुलसा रोग", "bn": "টমেটোর আগাম ধসা রোগ" },
+    "causeType": "FUNGAL",
+    "causativeAgent": "Alternaria solani",
+    "overview": "Early blight is a common fungal disease of tomato plants caused by Alternaria solani. It can affect leaves, stems, and fruit, and typically starts as small dark brown spots on older leaves.",
+    "symptoms": [
+      "Dark brown circular spots with concentric rings (target-like pattern) on older leaves.",
+      "Leaves turn yellow and drop off as the disease progresses.",
+      "Leathery black spots near the stem end of fruits."
+    ],
+    "organicTreatments": [
+      "Spray copper fungicide (certified organic) at the first sign of disease.",
+      "Apply 2% Neem Oil spray once every 10 days to control spore germination.",
+      "Prune lower leaves to reduce soil splash and improve air circulation."
+    ],
+    "chemicalTreatments": [
+      "Mancozeb 75% WP (2 g/L of water) sprayed at 10-14 day intervals.",
+      "Chlorothalonil 75% WP (1.5-2 g/L of water) as a protective cover spray."
+    ],
+    "preventiveMeasures": [
+      "Practice 3-year crop rotation (avoid nightshade family crops).",
+      "Use drip irrigation instead of overhead watering to keep foliage dry.",
+      "Apply thick organic mulch to prevent fungal spores from splashing up from the soil."
+    ],
+    "progressionInfo": "In warm, humid weather (24-29°C), spots can enlarge rapidly. Without treatment, complete defoliation can occur within 14-21 days, causing severe yield loss."
+  },
+  {
+    "id": "TOMATO_LATE_BLIGHT",
+    "cropName": "Tomato",
+    "diseaseName": "Late Blight",
+    "localNames": { "hi": "टमाटर का पछेती झुलसा रोग", "bn": "টমেটোর নাবি ধসা রোগ" },
+    "causeType": "FUNGAL",
+    "causativeAgent": "Phytophthora infestans",
+    "overview": "Late blight is a highly destructive fungal-like oomycete disease. It thrives in cool, wet weather and can destroy an entire crop field within days if left unchecked.",
+    "symptoms": [
+      "Large, irregular water-soaked spots on leaves that rapidly turn dark brown or black.",
+      "White fuzzy growth on the undersides of affected leaves during humid mornings.",
+      "Large, firm, greasy golden-brown spots on green and ripe fruits."
+    ],
+    "organicTreatments": [
+      "Destroy and burn all infected crop residue; do not compost.",
+      "Apply copper octanoate or copper hydroxide spray immediately.",
+      "Use bio-fungicide sprays based on Bacillus subtilis (10g/L)."
+    ],
+    "chemicalTreatments": [
+      "Metalaxyl 8% + Mancozeb 64% WP (2.5 g/L of water) as systemic-contact control.",
+      "Azoxystrobin 23% SC (1 ml/L of water) at the early stage of infection."
+    ],
+    "preventiveMeasures": [
+      "Ensure proper spacing to encourage quick drying of leaves.",
+      "Plant blight-resistant tomato cultivars.",
+      "Avoid fields where late blight was reported in potato crops recently."
+    ],
+    "progressionInfo": "Thrives in temperatures between 15-21°C with high relative humidity. Under optimal conditions, it can spread to the entire field within 3 to 7 days."
+  },
+  {
+    "id": "POTATO_EARLY_BLIGHT",
+    "cropName": "Potato",
+    "diseaseName": "Early Blight",
+    "localNames": { "hi": "आलू का अगेती झुलसा रोग", "bn": "আলুর আগাম ধসা রোগ" },
+    "causeType": "FUNGAL",
+    "causativeAgent": "Alternaria solani",
+    "overview": "Early blight affects potato foliage, reducing photosynthetic area and leading to smaller tuber sizes. It appears initially on older, mature leaves.",
+    "symptoms": [
+      "Small, dark, concentric-ring spots on lower leaves.",
+      "Leaves turn yellow and dry up, starting from bottom of the plant.",
+      "Dark, sunken, circular lesions on harvested potato tubers."
+    ],
+    "organicTreatments": [
+      "Apply copper-based sprays early in the season.",
+      "Utilize Trichoderma harzianum soil treatment during planting.",
+      "Irrigate early in the morning so leaves dry quickly during the day."
+    ],
+    "chemicalTreatments": [
+      "Propineb 70% WP (2 g/L of water) at first symptoms.",
+      "Difenoconazole 25% EC (0.5 ml/L of water) for curative action."
+    ],
+    "preventiveMeasures": [
+      "Maintain adequate soil nitrogen levels (stressed plants are more susceptible).",
+      "Use certified disease-free seed tubers.",
+      "Harvest tubers only after complete vine death to prevent skin wounding."
+    ],
+    "progressionInfo": "Can result in yield reductions of 20-30% if defoliation occurs during the tuber bulking stage."
+  },
+  {
+    "id": "POTATO_LATE_BLIGHT",
+    "cropName": "Potato",
+    "diseaseName": "Late Blight",
+    "localNames": { "hi": "आलू का पछेती झुलसा रोग", "bn": "আলুর নাবি ধসা রোগ" },
+    "causeType": "FUNGAL",
+    "causativeAgent": "Phytophthora infestans",
+    "overview": "Late blight is the historical cause of the Irish Potato Famine. It remains one of the most critical threats to global potato farming, destroying both leaves and tubers.",
+    "symptoms": [
+      "Dark brown, water-soaked lesions starting at leaf tips and margins.",
+      "Fuzzy white mold appearing on the lower surface of leaves under wet conditions.",
+      "Tubers exhibit reddish-brown dry rot extending into the flesh."
+    ],
+    "organicTreatments": [
+      "Spray copper oxide/hydroxide protective mixtures repeatedly during rainy periods.",
+      "Immediately rogue out and destroy infected plants to limit spore travel."
+    ],
+    "chemicalTreatments": [
+      "Cymoxanil 8% + Mancozeb 64% WP (2.5 g/L of water) at weekly intervals.",
+      "Dimethomorph 50% WP (1 g/L of water) mixed with contact fungicide."
+    ],
+    "preventiveMeasures": [
+      "Keep potato tubers well hilled/covered with soil to shield them from washing spores.",
+      "Monitor local weather forecasts for cold, rainy warnings and spray beforehand.",
+      "Destroy cull piles (discarded potatoes) which serve as primary inoculum sources."
+    ],
+    "progressionInfo": "Under high humidity (>90%) and cool temperatures (15-20°C), spores can destroy a healthy potato field in under 5 days."
+  },
+  {
+    "id": "RICE_BLAST",
+    "cropName": "Rice",
+    "diseaseName": "Blast",
+    "localNames": { "hi": "धान का झोंका रोग", "bn": "ধানের ব্লাস্ট রোগ" },
+    "causeType": "FUNGAL",
+    "causativeAgent": "Magnaporthe oryzae",
+    "overview": "Rice Blast is a significant threat to global food security. It can affect all aboveground parts of the rice plant, including leaves, collars, nodes, and panicles.",
+    "symptoms": [
+      "Spindle-shaped (diamond) spots on leaves with reddish-brown borders and grey centers.",
+      "Rotting of the neck (stem right below panicle), causing the heads to break off (neck blast).",
+      "Unfilled grains (empty, white panicles)."
+    ],
+    "organicTreatments": [
+      "Treat seeds with Pseudomonas fluorescens formulation (10g/kg of seeds).",
+      "Apply silicon-rich fertilizers or rice husk ash to strengthen cell walls.",
+      "Avoid excessive nitrogen fertilization, which soft-tissue builds plants."
+    ],
+    "chemicalTreatments": [
+      "Tricyclazole 75% WP (0.6 g/L of water) - highly effective for neck blast prevention.",
+      "Isoprothiolane 40% EC (1.5 ml/L of water) at tillering and panicle initiation."
+    ],
+    "preventiveMeasures": [
+      "Avoid continuous flooding; adopt intermittent alternate wetting and drying.",
+      "Use blast-resistant rice varieties recommended for the region.",
+      "Burn or plow under stubble after harvest to eliminate overwintering spores."
+    ],
+    "progressionInfo": "Neck blast infection right after flowering is most critical, potentially causing 80-100% crop loss in a short period."
+  },
+  {
+    "id": "RICE_BACTERIAL_LEAF_BLIGHT",
+    "cropName": "Rice",
+    "diseaseName": "Bacterial Leaf Blight",
+    "localNames": { "hi": "धान का जीवाणुज पत्ती झुलसा रोग", "bn": "ধানের পাতা পোড়া রোগ" },
+    "causeType": "BACTERIAL",
+    "causativeAgent": "Xanthomonas oryzae pv. oryzae",
+    "overview": "Bacterial Leaf Blight (BLB) is a major bacterial disease of rice, causing severe drying of leaves and structural wilting (known as kresek).",
+    "symptoms": [
+      "Yellow to white wavy stripes starting from leaf tips and running down leaf margins.",
+      "Milky or cloudy bacterial droplets oozing from cut leaves on humid mornings.",
+      "Systemic wilting of young seedlings (kresek phase) where leaves roll up and die."
+    ],
+    "organicTreatments": [
+      "Spray Fresh Cow Dung Extract (5%) filtered slurry to stimulate local resistance.",
+      "Spray Pseudomonas fluorescens solution (20 g/L) weekly.",
+      "Drain fields temporarily if the infection starts spreading rapidly."
+    ],
+    "chemicalTreatments": [
+      "Streptocycline (antibiotic) (0.1 g/L of water) mixed with Copper Oxychloride (2 g/L).",
+      "Plantamycin (antibiotic) (1.5 g/L) sprayed at 10-day intervals."
+    ],
+    "preventiveMeasures": [
+      "Avoid clipping seedling tips before transplanting (reduces bacterial entry points).",
+      "Use balanced NPK fertilizer ratio; avoid high dosage of Nitrogen.",
+      "Ensure proper field drainage; do not allow deep standing water in nursery."
+    ],
+    "progressionInfo": "Kresek phase in young plants leads to complete death of the tillers. Foliage damage in mature crops blocks grain filling, causing up to 50% yield loss."
+  }
+]
