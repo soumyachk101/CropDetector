@@ -40,3 +40,16 @@ All design, architectural, and requirement documents are located in the [Docs/](
 ---
 
 *Crop Detector v1.0.0 — Created June 2026*
+---
+
+## 🤝 Contributing & Collaboration
+
+I am always open to meaningful collaborations. If you have ideas for improvements, bug fixes, or new features, feel free to:
+1. **Fork** the repository.
+2. **Create** a new feature branch.
+3. **Submit** a pull request.
+
+Let's build something great together!
+
+---
+
